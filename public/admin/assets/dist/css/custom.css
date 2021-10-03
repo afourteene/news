@@ -1,0 +1,101 @@
+@font-face {
+  font-family: 'Yekan';
+  src: url('../fonts/Yekan.eot');
+  /* IE9 Compat Modes */
+  src: url('../fonts/Yekan.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/Yekan.woff2') format('woff2'), /* Modern Browsers */
+  url('../fonts/Yekan.woff') format('woff'), /* Modern Browsers */
+  url('../fonts/Yekan.otf') format('opentype'), /* Open Type Font */
+  url('../fonts/Yekan.ttf') format('truetype');
+  /* Safari, Android, iOS */
+  font-weight: normal;
+  font-style: normal;
+  text-rendering: optimizeLegibility;
+  font-display: auto;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Yekan';
+  direction: rtl;
+
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1010%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(180%2c 197%2c 215%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c535.2C98.225%2c521.5%2c177.373%2c459.339%2c262.531%2c408.507C350.852%2c355.787%2c450.131%2c317.038%2c507.974%2c231.984C571.271%2c138.91%2c620.013%2c24.451%2c598.906%2c-86.11C578.006%2c-195.586%2c465.901%2c-256.475%2c397.867%2c-344.754C324.582%2c-439.846%2c295.773%2c-582.452%2c183.54%2c-625.078C71.008%2c-667.818%2c-57.07%2c-613.628%2c-163.874%2c-558.103C-258.929%2c-508.686%2c-311.293%2c-411.491%2c-382.045%2c-331.044C-453.422%2c-249.886%2c-566.34%2c-190.618%2c-581.222%2c-83.567C-596.099%2c23.452%2c-502.749%2c110.82%2c-457.083%2c208.743C-411.856%2c305.724%2c-401.309%2c426.759%2c-314.23%2c488.952C-226.295%2c551.757%2c-107.024%2c550.127%2c0%2c535.2' fill='%23819dbc'%3e%3c/path%3e%3cpath d='M1440 931.4359999999999C1519.241 928.456 1600.437 954.606 1672.897 922.394 1750.598 887.852 1817.129 825.7090000000001 1852.1399999999999 748.218 1887.09 670.862 1882.871 581.814 1864.185 499.011 1846.455 420.44399999999996 1791.716 360.483 1749.203 292.074 1697.751 209.28199999999998 1673.356 102.59699999999998 1588.272 55.03199999999998 1498.011 4.572999999999979 1374.895-18.730000000000018 1285.157 32.653999999999996 1194.593 84.51100000000002 1203.1970000000001 218.43900000000002 1148.106 307.073 1104.6100000000001 377.051 1006.235 414.43100000000004 996.97 496.302 987.71 578.126 1068.395 639.183 1102.0149999999999 714.3530000000001 1135.99 790.318 1125.549 895.375 1195.567 940.346 1265.585 985.318 1356.842 934.563 1440 931.4359999999999' fill='%23e8edf3'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1010'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.logo{
+
+  max-width: 80px;
+  border: solid rgba(134, 163, 243, 0.473) 2px;
+  border-radius: 60px;
+}
+
+.img
+{
+  width: 50px;
+  height: 70px;
+
+}
+
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: auto;
+  width: 550px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  transform: translate(-50%, -50%)
+}
+
+.email-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: auto;
+  width: 550px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  transform: translate(-50%, -50%)
+}
+
+.box {
+  margin: 20px 0 50px 0;
+}
+
+.link-signin {
+  display: block;
+  text-decoration: none;
+}
+
+.link-signup {
+  display: block;
+  text-decoration: none;
+}
+
+.link-signin:hover{
+  cursor: pointer;
+
+}
+.link-resetpass {
+  color:rgb(112, 112, 112);
+  display: block;
+  text-decoration: none;
+}
+
+.link-resetpass:hover {
+  color:rgba(112, 112, 112, 0.822);
+  cursor: pointer;
+}
+
+
+ul{
+  margin: 0;
+  list-style-type:none;
+}
