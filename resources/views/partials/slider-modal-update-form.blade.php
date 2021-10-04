@@ -1,11 +1,11 @@
 
 
-<form action="{{ route('update-categories',$slider->id ) }}" method="POST">
-    <div class="modal fade" id="modal-{{ $slider->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<form action="{{ route('slider-update',$slider->id ) }}" method="POST" enctype="multipart/form-data">
+    <div class="modal fade" id="modal-{{ $slider->id }}" tabindex="-1" aria-labelledby="modal-update" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">بروز رسانی</h5>
+                    <h5 class="modal-title" id="modal-update">بروز رسانی</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -13,11 +13,11 @@
                         @csrf
                         <div class="mb-3">
                             <label for="title" class="col-form-label">نام عکس:</label>
-                            <input type="text" class="form-control" id="title" name="title">
+                            <input type="text" class="form-control" id="title" name="title" value="{{ $slider->alt }}">
                         </div>
                         <div class="mb-3">
                             <label for="link" class="col-form-label">لینک:</label>
-                            <input type="text" class="form-control" id="link" name="link">
+                            <input type="text" class="form-control" id="link" name="link" value="{{ $slider->link }}" >
                         </div>
                         <div class="mb-3">
                             <label for="image" class="col-form-label">عکس:</label>

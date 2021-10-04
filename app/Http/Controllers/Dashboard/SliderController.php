@@ -27,7 +27,7 @@ class SliderController extends Controller
     public function create($data)
     {
         $alt = $data['title'];
-        $link = strtok($data['image']->getClientOriginalName(), '.');
+        $link =$data['link'];
         $name = time() . '_' . date('Y') . '.' . $data['image']->getClientOriginalExtension();
         $image = ['alt' => $alt , 'name' => $name, 'text' => $data['text'], 'link' => $link];
         $imageFind = Slider::create($image);
@@ -89,8 +89,20 @@ class SliderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {   
+       
+        $data = $this->validateForm($request);
+        $alt = $data['title'];
+        $link =$data['link'];
+        $name = time() . '_' . date('Y') . '.' . $data['image']->getClientOriginalExtension();
+        $image = ['alt' => $alt , 'name' => $name, 'text' => $data['text'], 'link' => $link];
+        $imageFind = Slider::find($id);
+        if ($imageFind) {
+            $imageFind->update($image);
+            $data['image']->move(public_path('uploads'), $name);
+            return redirect()->back()->with('success',true);
+        }else 
+        return redirect()->back()->with('failed',true);
     }
 
     /**
@@ -101,7 +113,11 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = Slider::destroy($id);
+        if($delete) 
+        return redirect()->back()->with('success',true);
+        else
+        return redirect()->back()->with('failed',true);
     }
 
     protected function validateForm(Request $request)

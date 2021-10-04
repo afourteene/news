@@ -72,7 +72,7 @@ Route::prefix('dashboard')->middleware('authchek')->group(function(){
     //slider panel
     Route::get('/slider',[SliderController::class,'index'])->name('slider');
     Route::post('/slider/store',[SliderController::class,'store'])->name('slider-create');
-    Route::get('/slider/update/{id}',[SliderController::class,'update'])->name('slider-update');
+    Route::post('/slider/update/{id}',[SliderController::class,'update'])->name('slider-update');
     Route::get('/slider/delete/{id}',[SliderController::class,'destroy'])->name('slider-delete');
     //Route::post('/dologin',[UserController::class,'DoLogin'])->name('auth.login');
     //Route::get('/register',[UserController::class,'register'])->name('register');

@@ -12,11 +12,7 @@
   font-style: normal;
   text-rendering: optimizeLegibility;
   font-display: auto;
-  
-
 }
-
-
 
 body {
   font-family: 'Yekan';
@@ -39,8 +35,10 @@ body {
   top: 0;
   right: 0;
   bottom: 0;
-  z-index: 100; /* Behind the navbar */
-  padding: 48px 0 0; /* Height of navbar */
+  z-index: 100;
+  /* Behind the navbar */
+  padding: 48px 0 0;
+  /* Height of navbar */
   box-shadow: inset 1px 0 0 rgba(0, 0, 0, .1);
 }
 
@@ -56,7 +54,8 @@ body {
   height: calc(100vh - 48px);
   padding-top: .5rem;
   overflow-x: hidden;
-  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  overflow-y: auto;
+  /* Scrollable contents if viewport is shorter than content. */
 }
 
 .sidebar .nav-link {
@@ -73,8 +72,7 @@ body {
   color: #2470dc;
 }
 
-.sidebar .nav-link:hover .feather,
-.sidebar .nav-link.active .feather {
+.sidebar .nav-link:hover .feather, .sidebar .nav-link.active .feather {
   color: inherit;
 }
 
@@ -116,15 +114,25 @@ body {
   border-color: transparent;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
 }
-span.create-post{
+
+span.create-post {
   display: block;
   float: left;
 }
 
-.cat-btn:hover
+a .cat-btn:hover {
+  cursor: pointer;
+  color: #0D6EFE;
+}
+
+.slider-btn:hover {
+  cursor: pointer;
+  color: #0D6EFE;
+}
+.slider-image
 {
- cursor: pointer;
-color: #0D6EFE;
+  width: 30px;
+  height: 30px;
 }
 img.profile-img {
   display: inline-block;

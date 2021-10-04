@@ -14,6 +14,7 @@
                 <tr>
                     <th scope="col">شماره</th>
                     <th scope="col">نام</th>
+                    <th scope="col">نام</th>
                     <th scope="col">تنظیمات</th>
                 </tr>
             </thead>
@@ -21,7 +22,8 @@
                 @foreach ($sliders as $slider )
                 <tr>
                     <td>{{ $loop->index + 1 }}</td>
-                    <td>{{ $slider->name }}</td>
+                    <td>{{ $slider->alt }}</td>
+                    <td><img src="{{ url("uploads/$slider->name") }}"class="rounded slider-image"></td>
                     <td>@include('partials.btn-slider-modal')</td>
                 </tr>
                 @include('partials.slider-modal-update-form')    
