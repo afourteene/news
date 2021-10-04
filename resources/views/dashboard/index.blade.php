@@ -17,7 +17,7 @@
                 <div class="card text-dark bg-light text-center " style="max-width:15rem;">
                     <div class="card-body">
                         <h4 class="card-title">پیام های جدید</h4>
-                        <h5 class="card-title">{{ $messageCount }}</h5>
+                        <h5 class="card-title">{{ $newMessageCount }}</h5>
 
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                 <div class="card text-dark bg-light text-center " style="max-width:15rem;">
                     <div class="card-body">
                         <h4 class="card-title">پیام های خوانده شده</h4>
-                        <h5 class="card-title">4</h5>
+                        <h5 class="card-title">{{ $readMessageCount }}</h5>
 
                     </div>
                 </div>

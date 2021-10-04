@@ -1,15 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Front;
 
-use App\Models\Post;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Message;
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Slider;
+use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,15 +15,8 @@ class DashboardController extends Controller
      */
     public function index()
     {   
-        $posts = Post::latest()->take(5)->get();
-        $postCount = sizeof(Post::all());
-        $users = sizeof(User::where('role','support')->orWhere('role','author')->get());
-        $userMessage = User::find(Auth::user()->id);
-        $readMessageCount = sizeof($userMessage->messages()->where('status','read')->get());
-        $newMessageCount = sizeof($userMessage->messages()->where('status','new')->get());
-
-       
-        return view('dashboard.index',compact('posts','postCount','users','readMessageCount','newMessageCount'));
+        $sliders = Slider::all();
+        return view('front.index',compact('sliders'));
     }
 
     /**

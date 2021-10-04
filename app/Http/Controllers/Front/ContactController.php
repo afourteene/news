@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Front;
 
-use App\Models\Post;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\Message;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
-class DashboardController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,16 +15,8 @@ class DashboardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        $posts = Post::latest()->take(5)->get();
-        $postCount = sizeof(Post::all());
-        $users = sizeof(User::where('role','support')->orWhere('role','author')->get());
-        $userMessage = User::find(Auth::user()->id);
-        $readMessageCount = sizeof($userMessage->messages()->where('status','read')->get());
-        $newMessageCount = sizeof($userMessage->messages()->where('status','new')->get());
-
-       
-        return view('dashboard.index',compact('posts','postCount','users','readMessageCount','newMessageCount'));
+    {
+        return view('front.contact-us');
     }
 
     /**
@@ -34,9 +24,17 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create($data)
+    {   
+        
+        $key = $data['to'];
+        $users = User::where('role',$key)->get();
+        foreach($users as $user)
+        {
+            $messages [] = ['title' => $data['title'],'body'=>$data['body'],'sender'=>$data['email'],'reciver'=>$data['to'],'user_id'=>$user->id ];
+        }
+        return DB::table('messages')->insert($messages);
+        
     }
 
     /**
@@ -47,7 +45,12 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $this->validateForm($request);
+        $create = $this->create($data);
+        if($create)
+        return redirect()->back()->with('success',true);
+        else
+        return redirect()->back()->with('failed',true);
     }
 
     /**
@@ -93,5 +96,15 @@ class DashboardController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    protected function validateForm(Request $request)
+    {
+        return $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'to' => ['required','string' ,'max:10'],
+            'body' => ['required', 'string',  'max:255']
+        ]);
     }
 }

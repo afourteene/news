@@ -2,6 +2,11 @@
     <div class="position-sticky pt-3">
       <ul class="nav flex-column">
         <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{{ route('home') }}">
+           مشاهده وبسایت
+          </a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link {{ url()->current() === route('dashboard') ? 'active' : '' }}" aria-current="page" href="{{ route('dashboard') }}">
             داشبرد
           </a>

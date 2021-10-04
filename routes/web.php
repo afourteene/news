@@ -1,8 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Front\VipController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\Front\PublicController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Dashboard\PostController;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\SearchController;
@@ -23,9 +27,23 @@ use App\Http\Controllers\Dashboard\InformationController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', [HomeController::class,'index'])->name('home');
+
+Route::get('/contact-us', [ContactController::class,'index'])->name('contact');
+Route::post('/contact-us/send', [ContactController::class,'store'])->name('send');
+
+Route::get('/public', [PublicController::class,'index'])->name('public');
+
+Route::get('/vip', [VipController::class,'index'])->name('vip');
+
+Route::get('/search', [SearchController::class,'index'])->name('search');
+
+//Route::get('/', [CommentController::class,'index'])->name('comment');
+
+//Route::get('/', [LikeController::class,'index'])->name('like');
+
+
+
 
 Route::prefix('auth')->group(function(){
 

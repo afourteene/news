@@ -1,0 +1,125 @@
+@font-face {
+  font-family: 'Yekan';
+  src: url('../fonts/Yekan.eot');
+  /* IE9 Compat Modes */
+  src: url('../fonts/Yekan.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/Yekan.woff2') format('woff2'), /* Modern Browsers */
+  url('../fonts/Yekan.woff') format('woff'), /* Modern Browsers */
+  url('../fonts/Yekan.otf') format('opentype'), /* Open Type Font */
+  url('../fonts/Yekan.ttf') format('truetype');
+  /* Safari, Android, iOS */
+  font-weight: normal;
+  font-style: normal;
+  text-rendering: optimizeLegibility;
+  font-display: auto;
+}
+
+body {
+  font-family: 'Yekan';
+  direction: rtl;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1009%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(152%2c 225%2c 191%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c361.229C75.867%2c357.346%2c155.381%2c381.689%2c222.807%2c346.695C292.511%2c310.519%2c349.969%2c244.953%2c370.232%2c169.079C389.573%2c96.657%2c341.248%2c26.621%2c327.992%2c-47.158C315.333%2c-117.616%2c324.514%2c-190.024%2c294.071%2c-254.814C256.635%2c-334.486%2c221.492%2c-444.139%2c134.661%2c-458.612C44.888%2c-473.575%2c-9.217%2c-353.052%2c-93.803%2c-319.463C-166.723%2c-290.506%2c-254.985%2c-320.806%2c-320.62%2c-277.819C-394.951%2c-229.137%2c-457.423%2c-155.262%2c-476.885%2c-68.566C-496.87%2c20.459%2c-470.362%2c114.748%2c-426.735%2c194.883C-384.816%2c271.881%2c-319.647%2c338.44%2c-237.965%2c370.281C-162.478%2c399.707%2c-80.914%2c365.371%2c0%2c361.229' fill='%235ed09b'%3e%3c/path%3e%3cpath d='M1440 1034.85C1548.943 1045.204 1658.529 1098.1799999999998 1760.739 1059.079 1869.8899999999999 1017.323 1973.6950000000002 930.7629999999999 2005.813 818.398 2037.4270000000001 707.794 1952.079 601.883 1923.252 490.519 1898.222 393.825 1907.877 286.464 1847.519 206.88299999999998 1785.51 125.12599999999998 1690.527 68.98599999999999 1589.579 50.58100000000002 1493.169 33.00400000000002 1398.554 72.423 1307.401 108.40899999999999 1223.315 141.60500000000002 1145.152 185.01600000000002 1082.932 250.599 1018.586 318.422 960.059 396.54499999999996 946.308 489.01800000000003 932.528 581.687 972.0550000000001 670.79 1007.554 757.492 1044.4 847.483 1074.335 949.123 1156.188 1001.621 1238.022 1054.107 1343.217 1025.651 1440 1034.85' fill='%23d2f2e3'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1009'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+
+/* Padding below the footer and lighter body text */
+
+body {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  color: #5a5a5a;
+}
+
+.side-bar-item {
+  width: 350px;
+  margin: 5px auto;
+  height: 40px;
+}
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+
+.carousel {
+  margin-bottom: 4rem;
+}
+
+/* Since positioning the image, we need to help out the caption */
+
+.carousel-caption {
+  bottom: 3rem;
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+
+.carousel-item {
+  height: 32rem;
+}
+
+.carousel-item>img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  height: 32rem;
+}
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.marketing h2 {
+  font-weight: 400;
+}
+
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 5rem 0;
+  /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 40em) {
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 62em) {
+  .featurette-heading {
+    margin-top: 7rem;
+  }
+}
