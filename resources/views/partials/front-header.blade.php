@@ -24,7 +24,7 @@
                     <ul  class="navbar-nav me-auto mb-2 mb-md-0">
                         @auth
                         <li class="nav-item">
-                            <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">داشبرد</a>
+                            <a class="nav-link " href="{{ route('dashboard') }}" tabindex="-1" aria-disabled="true">داشبرد</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link px-3" href="{{ route('logout') }}">خروج</a>
@@ -39,8 +39,9 @@
                         @endguest
                     </ul>
                 </div>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="جستجو" aria-label="جستجو">
+                <form class="d-flex" method="POST" action="{{ route('header-search') }}">
+                    @csrf
+                    <input class="form-control me-2" type="search" placeholder="جستجو" aria-label="جستجو" name="search">
                     <button class="btn btn-outline-success" type="submit">جستجو</button>
                 </form>
             </div>

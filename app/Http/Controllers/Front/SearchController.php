@@ -16,14 +16,16 @@ class SearchController extends Controller
     public function index(Request $request)
     {
         $key = $request->search;
-        if (is_null($key)) {
+
+      if (is_null($key)) {
             $posts = null;
-            return view('dashboard.search', compact('posts'));
+            return view('front.search', compact('posts'));
         } elseif (!is_null($key)) {
             $findPost = Post::where('body', 'like', "%$key%")->get();
+            
             $posts = $findPost->count() == 0 ? null : $findPost;
 
-            return view('dashboard.search', compact('posts'));
+            return view('front.search', compact('posts'));
         } else {
             $posts = null;
             return view('front.search', compact('posts'));

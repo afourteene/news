@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Image;
+use App\Models\like;
 use App\Models\Post;
 use App\Models\Tag;
 use GuzzleHttp\Promise\Create;
@@ -64,6 +65,7 @@ class PostController extends Controller
             $create->categories()->attach($data['categories']);
             $this->tagCreate($create->id, $this->stringToArray($data['tags']));
             $this->postImage($create->id,$data);
+            $like = like::create(['likes'=> 0 , 'post_id'=> $create->id]);
             return redirect()->route('posts')->with('success', true);
         } else
             return redirect()->route('posts')->with('failed', true);

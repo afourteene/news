@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\like;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class LikeController extends Controller
@@ -33,9 +35,20 @@ class LikeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id)
     {
-        //
+        $post = Post::find($id);
+        $postLike = $post->like;
+        
+
+        if (is_null($postLike)) {
+            $create = like::create(['likes' => 1 , 'post_id' => $id]);
+        } else {
+            $like = Like::findOrFail($postLike->id);
+            
+            $like->update(['likes' => ++$like->likes ]);
+        }
+        return redirect()->back()->with('success',true) ;
     }
 
     /**
@@ -69,7 +82,6 @@ class LikeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
     }
 
     /**

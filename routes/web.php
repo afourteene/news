@@ -2,8 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Front\BlogController;
 use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\Front\LikeController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Front\CommentController;
 use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Dashboard\PostController;
 use App\Http\Controllers\Dashboard\UserController;
@@ -13,7 +16,7 @@ use App\Http\Controllers\Dashboard\MessageController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\InformationController;
-use App\Http\Controllers\Front\BlogController;
+use App\Http\Controllers\Front\SearchController as frontSearch;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,9 +36,12 @@ Route::post('/contact-us/send', [ContactController::class,'store'])->name('send'
 
 Route::get('/public', [BlogController::class,'public'])->name('public');
 Route::get('/vip', [BlogController::class,'vip'])->name('vip');
-Route::get('/show/{id}', [BlogController::class,'vip'])->name('show-blog');
+Route::get('/show/{id}', [BlogController::class,'show'])->name('show-blog');
 
-Route::get('/search', [SearchController::class,'index'])->name('search');
+Route::post('/comment/{id}', [CommentController::class,'store'])->name('store-comment');
+Route::get('/like/{id}', [LikeController::class,'store'])->name('store-like');
+
+Route::post('/search/result', [frontSearch::class,'index'])->name('header-search');
 
 //Route::get('/', [CommentController::class,'index'])->name('comment');
 

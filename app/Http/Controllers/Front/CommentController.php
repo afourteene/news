@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Http\Controllers\Controller;
+use App\Models\Comment;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class CommentController extends Controller
 {
@@ -22,9 +23,9 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create($data)
+    {   
+        return Comment::create($data);
     }
 
     /**
@@ -33,9 +34,13 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
-        //
+        $validateData = $this->validateForm($request);
+        //dd($request->ip());
+        $data = ['author' => $validateData['fullname'] ,'email' => $validateData['email'], 'author_ip' => $request->ip() ,'post_id'=>$id , 'comment' => $validateData['comment'] ];
+        $create = $this->create($data);
+        return redirect()->back()->with('success',true);
     }
 
     /**
@@ -81,5 +86,15 @@ class CommentController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    protected function validateForm(Request $request)
+    {
+        return $request->validate([
+            'fullname' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string','email'],
+            'comment' => ['required', 'string', 'max:255']
+        ]);
     }
 }

@@ -88,7 +88,9 @@ class InformationController extends Controller
                 'password' => Hash::make($form['password']),
             ];
             $user = User::find($id);
-            $this->profileImage($form['image'], $user->id);
+            $userImageId = $user->image;
+            
+            $this->profileImage($form['image'], $user->id,$userImageId);
             $user->update($data);
             return redirect()->back()->with('success',true);
         }else
@@ -107,20 +109,29 @@ class InformationController extends Controller
     {
         //
     }
-    private function profileImage($data, $userId): bool
+    private function profileImage($data, $userId,$imageId): bool
     {
         
         $name = strtok($data->getClientOriginalName(), '.');
         $url = time() . '_' . date('Y') . '.' . $data->getClientOriginalExtension();
         $image = ['name' => $name, 'url' => $url, 'imageable_id' => $userId, 'imageable_type' => User::class];
-        //dd($image);
-        $create = Image::updateOrCreate($image);
-        if ($create) {
+
+        if(is_null($imageId)){
+            $create = Image::create($image);
             $data->move(public_path('uploads'), $url);
-            return true;
-        } else
-            return false;
+            
+        }else{
+            $userImageExist = Image::findOrFail($imageId->id);
+            $userImageExist->update($image);
+            $data->move(public_path('uploads'), $url);
+        }
+       
+    
+        return true;
+            
     }
+
+
 
     protected function validateForm(Request $request)
     {
