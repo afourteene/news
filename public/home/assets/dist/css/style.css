@@ -23,6 +23,9 @@ body {
   background-repeat: no-repeat;
 }
 
+h1,h2{
+  font-family: 'Yekan';
+}
 /* GLOBAL STYLES
 -------------------------------------------------- */
 

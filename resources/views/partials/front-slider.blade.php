@@ -17,7 +17,7 @@
                 <div class="carousel-caption text-start">
                     <h1>{{ $slider->alt }}</h1>
                     <p>{{ $slider->text }}</p>
-                    <p><a class="btn btn-lg btn-primary" href="{{ $slider->link }}">لینک</a></p>
+                    <p><a class="btn btn-lg btn-primary" href="http://{{ $slider->link }}">لینک</a></p>
                 </div>
             </div>
         </div>

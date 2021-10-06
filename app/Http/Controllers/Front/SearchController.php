@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Http\Controllers\Controller;
+use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class SearchController extends Controller
 {
@@ -12,9 +13,21 @@ class SearchController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $key = $request->search;
+        if (is_null($key)) {
+            $posts = null;
+            return view('dashboard.search', compact('posts'));
+        } elseif (!is_null($key)) {
+            $findPost = Post::where('body', 'like', "%$key%")->get();
+            $posts = $findPost->count() == 0 ? null : $findPost;
+
+            return view('dashboard.search', compact('posts'));
+        } else {
+            $posts = null;
+            return view('front.search', compact('posts'));
+        }
     }
 
     /**

@@ -3,20 +3,25 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
-class VipController extends Controller
+class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function vip()
     {
         return view('front.vip');
     }
 
+    public function public()
+    {
+        return view('front.public');
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -46,7 +51,8 @@ class VipController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+        return view('front.single-blog');
     }
 
     /**

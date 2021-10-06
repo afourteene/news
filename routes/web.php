@@ -1,10 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Front\VipController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Front\HomeController;
-use App\Http\Controllers\Front\PublicController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Dashboard\PostController;
@@ -15,6 +13,7 @@ use App\Http\Controllers\Dashboard\MessageController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\InformationController;
+use App\Http\Controllers\Front\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,9 +31,9 @@ Route::get('/', [HomeController::class,'index'])->name('home');
 Route::get('/contact-us', [ContactController::class,'index'])->name('contact');
 Route::post('/contact-us/send', [ContactController::class,'store'])->name('send');
 
-Route::get('/public', [PublicController::class,'index'])->name('public');
-
-Route::get('/vip', [VipController::class,'index'])->name('vip');
+Route::get('/public', [BlogController::class,'public'])->name('public');
+Route::get('/vip', [BlogController::class,'vip'])->name('vip');
+Route::get('/show/{id}', [BlogController::class,'vip'])->name('show-blog');
 
 Route::get('/search', [SearchController::class,'index'])->name('search');
 
@@ -52,8 +51,6 @@ Route::prefix('auth')->group(function(){
     Route::get('/register',[RegisterController::class,'index'])->name('register');
     Route::post('/do-register',[RegisterController::class,'register'])->name('do-register');
     Route::get('/logout',[LoginController::class,'logout'])->name('logout');
-
-
 
 });
 
